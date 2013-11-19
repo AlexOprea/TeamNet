@@ -1,6 +1,26 @@
 <!DOCTYPE html>
+<html>
 <head>
 <title>Angajati</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(function()
+{
+
+$('#f1').submit(function(e){
+e.preventDefault();
+var nu=$('#t1').val();
+var pren=$('#t2').val();
+var va=$('#t3').val();
+var depart=$('#t4').val();
+var dat=$('#t5').val();
+var poz=$('#t6').val();
+
+var x='<tr><td>' + nu + '</td><td>' + pren + '</td><td>'+va +'</td><td>'+depart +'</td><td>'+dat+'</td><td>'+poz+'</td></tr>';
+$('.main-table tr:last').after(x);
+});
+});
+</script>
 <style>
 .main-table thead{
 background-color: blue;
@@ -21,6 +41,7 @@ text-align: left;}
 </style>
 </head>
 <body>
+
 <table class="main-table">
 			<thead>
 				<tr id="cap_tabel">
@@ -81,4 +102,13 @@ text-align: left;}
 		
 
 </table>
+<form id="f1">
+Nume: <input type="text" name="nume" id="t1"></br>
+Prenume: <input type="text" name="prenume" id="t2"></br>
+Varsta: <input type="text" name="varsta" id="t3"></br>
+Departamentul: <input type="text" name="departament" id="t4"></br>
+Data Angajarii: <input type="text" name="data angajarii" id="t5"></br>
+Pozitia Ocupata: <input type="text" name="pozitia ocupata" id="t6"></br>
+<input id="submit-form" type="submit">
+</form>
 </body>
