@@ -4,13 +4,13 @@
 <title>Angajati</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-
-$(function (){
-    var foot = $('.main-table').find('tfoot');
-    if (!foot.length) foot = $('<tfoot>').appendTo('.main-table'); 
-	var y=$('#tb tr').length;
-    foot.append($('<td>Total</td><td>'+y+'</td><td>angajati</td>'));
-});
+function update_foot(){
+			var foot = $('.main-table').find('tfoot');
+			if (!foot.length) foot = $('<tfoot>').appendTo('.main-table'); 
+			var y=$('#tb tr').length;
+			foot.replaceWith($('<tfoot><td>Total</td><td>'+y+'</td><td>angajati</td></tfoot>'));
+};
+$(update_foot);
 
 $(function()
 {
@@ -24,14 +24,14 @@ $(function()
 		var dat=$('#t5').val();
 		var poz=$('#t6').val();
 
-		$(function (){
-			var foot = $('.main-table').find('tfoot');
-			if (!foot.length) foot = $('<tfoot>').appendTo('.main-table'); 
-			var y=$('#tb tr').length+1;
-			foot.replaceWith($('<tfoot><td>Total</td><td>'+y+'</td><td>angajati</td></tfoot>'));
-		}	);
+		
+		
+		
+		
 		var x='<tr><td>' + nu + '</td><td>' + pren + '</td><td>'+va +'</td><td>'+depart +'</td><td>'+dat+'</td><td>'+poz+'</td></tr>';
 		$('.main-table tbody tr:last').after(x);
+	
+		update_foot();
 	});
 });
 </script>
