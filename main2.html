@@ -26,7 +26,7 @@ $(function(){
     var foot = $('.main-table').find('tfoot');
 	var z=$('#tb tr').length;
 	var w=z+1;
-    foot.replaceWith($('<td><b>Total</b></td><td>'+w+'</td><td>angajati</td>'));
+    foot.append($('<td><b>Total</b></td><td>'+w+'</td><td>angajati</td>'));
 })
 
 var x='<tr><td>' + nu + '</td><td>' + pren + '</td><td>'+va +'</td><td>'+depart +'</td><td>'+dat+'</td><td>'+poz+'</td></tr>';
