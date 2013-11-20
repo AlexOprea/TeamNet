@@ -14,7 +14,16 @@ $(update_foot);
 
 $(function()
 {
-
+	$("td").dblclick(function(){
+		var original = $(this).text();
+		var input= $('<input type="text" value = "'+original+'">');
+		$(this).html(input);
+		input.keypress(function(e)){
+			if(e.which == 13) {
+			$(this).parent().text($(this).val());
+			}
+		};
+	};)
 	$('#f1').submit(function(e){
 		e.preventDefault();
 		var nu=$('#t1').val();
