@@ -4,34 +4,35 @@
 <title>Angajati</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-$(function(){
+
+$(function (){
     var foot = $('.main-table').find('tfoot');
     if (!foot.length) foot = $('<tfoot>').appendTo('.main-table'); 
 	var y=$('#tb tr').length;
-    foot.append($('<td><b>Total</b></td><td>'+y+'</td><td>angajati</td>'));
-})
- 
+    foot.append($('<td>Total</td><td>'+y+'</td><td>angajati</td>'));
+});
+
 $(function()
 {
 
-$('#f1').submit(function(e){
-e.preventDefault();
-var nu=$('#t1').val();
-var pren=$('#t2').val();
-var va=$('#t3').val();
-var depart=$('#t4').val();
-var dat=$('#t5').val();
-var poz=$('#t6').val();
-$(function(){
-    var foot = $('.main-table').find('tfoot');
-	var z=$('#tb tr').length;
-	var w=z+1;
-    foot.replaceWith($('<td><b>Total</b></td><td>'+w+'</td><td>angajati</td>'));
-})
+	$('#f1').submit(function(e){
+		e.preventDefault();
+		var nu=$('#t1').val();
+		var pren=$('#t2').val();
+		var va=$('#t3').val();
+		var depart=$('#t4').val();
+		var dat=$('#t5').val();
+		var poz=$('#t6').val();
 
-var x='<tr><td>' + nu + '</td><td>' + pren + '</td><td>'+va +'</td><td>'+depart +'</td><td>'+dat+'</td><td>'+poz+'</td></tr>';
-$('.main-table tr:last').after(x);
-});
+		$(function (){
+			var foot = $('.main-table').find('tfoot');
+			if (!foot.length) foot = $('<tfoot>').appendTo('.main-table'); 
+			var y=$('#tb tr').length+1;
+			foot.replaceWith($('<tfoot><td>Total</td><td>'+y+'</td><td>angajati</td></tfoot>'));
+		}	);
+		var x='<tr><td>' + nu + '</td><td>' + pren + '</td><td>'+va +'</td><td>'+depart +'</td><td>'+dat+'</td><td>'+poz+'</td></tr>';
+		$('.main-table tbody tr:last').after(x);
+	});
 });
 </script>
 <style>
